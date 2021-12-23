@@ -5,7 +5,7 @@ class Counter extends Component {
   // state is a property of Component which can store the information that is dynamic
   state = {
     count: 0,
-    tags: ["tag0", "tag1"],
+    tags: [],
   };
 
   // way 1 of binding
@@ -65,6 +65,9 @@ class Counter extends Component {
 
     // setState is used in this case
     this.setState({ count: this.state.count + 1 });
+    this.setState({
+      tags: this.state.tags.concat(`tag ${this.state.count + 1}`),
+    });
   };
 
   renderTags() {
