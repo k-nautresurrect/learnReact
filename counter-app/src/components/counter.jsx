@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import 'bootstrap/dist/css/bootstrap.css'
 
 class Counter extends Component{
 
@@ -12,18 +13,17 @@ class Counter extends Component{
         // we used bracket because javascript edits the return with ; if there is nothing
         // React.Fragment is used to return directly all the elements
         return (
-            <React.Fragment>
-                <h1>The Division is returned to root</h1>
+            <div>
                 {/* {} <- are used to write javascript code in return */}
-                <span>{this.countShow()}</span>
-                <button> Increment </button>
-            </React.Fragment>
+                <span className="badge bg-primary m-2">{this.countShow()}</span>
+                <button className="btn btn-success btn-sm"> Increment </button>
+            </div>
         );
     }
 
     countShow() {
         const {count} = this.state;
-        return <h1>{count}</h1>;
+        return count;
     }
 }
 
