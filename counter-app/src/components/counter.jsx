@@ -5,10 +5,11 @@ class Counter extends Component {
   // state is a property of Component which can store the information that is dynamic
   state = {
     count: 0,
-    tags: ["tag1"],
+    tags: ["tag0", "tag1"],
   };
 
   // way 1 of binding
+  /*  
   constructor() {
     super();
     // here we can access this so we will bind this to the new instance of method.
@@ -17,6 +18,7 @@ class Counter extends Component {
     // binidng the handleIncrement
     this.handleIncrement = this.handleIncrement.bind(this);
   }
+  */
 
   render() {
     // return can only return one element as createReactElement takes only one element at a time
@@ -56,7 +58,13 @@ class Counter extends Component {
 
   // way 2 -> using arrow function
   handleIncrement = () => {
-    console.log(this);
+    // we cannot do like this
+    // it is changed in virtualDom
+    // but react can't figure out how to sync it with real dom
+    // this.state.count+1;
+
+    // setState is used in this case
+    this.setState({ count: this.state.count + 1 });
   };
 
   renderTags() {
