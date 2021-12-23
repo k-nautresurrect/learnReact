@@ -5,9 +5,9 @@ class Counter extends Component{
 
     // state is a property of Component which can store the information that is dynamic
     state = {
-        count: 2,
+        count: 0,
     }
-
+    
     render () {
         // return can only return one element as createReactElement takes only one element at a time
         // we used bracket because javascript edits the return with ; if there is nothing
@@ -15,11 +15,18 @@ class Counter extends Component{
         return (
             <div>
                 {/* {} <- are used to write javascript code in return */}
-                <span className="badge bg-primary m-2">{this.countShow()}</span>
-                <button className="btn btn-success btn-sm"> Increment </button>
+                <span className={this.getColor()}>{this.countShow()}</span>
+                <button className="btn btn-info btn-sm text-light"> Increment </button>
             </div>
         );
     }
+
+
+    getColor(){
+        let classes = "badge m-2 bg-"
+        classes += this.state.count === 0 ? "warning text-dark" : "primary";
+        return classes;
+        }
 
     countShow() {
         const {count} = this.state;
