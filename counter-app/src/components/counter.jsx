@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 class Counter extends Component {
   // state is a property of Component which can store the information that is dynamic
   state = {
-    count: 0,
+    value: this.props.value,
     tags: [],
   };
 
@@ -21,6 +21,7 @@ class Counter extends Component {
   */
 
   render() {
+    // console.log("props", this.props);
     // return can only return one element as createReactElement takes only one element at a time
     // we used bracket because javascript edits the return with ; if there is nothing
     // React.Fragment is used to return directly all the elements
@@ -61,12 +62,12 @@ class Counter extends Component {
     // we cannot do like this
     // it is changed in virtualDom
     // but react can't figure out how to sync it with real dom
-    // this.state.count+1;
+    // this.state.value+1;
 
     // setState is used in this case
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
     this.setState({
-      tags: this.state.tags.concat(`tag ${this.state.count + 1}`),
+      tags: this.state.tags.concat(`tag ${this.state.value + 1}`),
     });
   };
 
@@ -88,13 +89,13 @@ class Counter extends Component {
 
   getColor() {
     let classes = "badge m-2 bg-";
-    classes += this.state.count === 0 ? "warning text-dark" : "primary";
+    classes += this.state.value === 0 ? "warning text-dark" : "primary";
     return classes;
   }
 
   countShow() {
-    const { count } = this.state;
-    return count;
+    const { value } = this.state;
+    return value;
   }
 }
 
