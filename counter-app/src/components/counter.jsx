@@ -40,11 +40,11 @@ class Counter extends Component {
           }
           Increment
         </button>
-        <h3>
+        {/* <h3>
           {this.state.tags.length === 0 && "Add Tags"}
           {this.state.tags.length > 0 && "The tags are"}
         </h3>
-        <div>{this.renderTags()}</div>
+        <div>{this.renderTags()}</div> */}
       </div>
     );
   }
@@ -85,6 +85,7 @@ class Counter extends Component {
       </ul>
     );
   }
+
   getColor() {
     let classes = "badge m-2 bg-";
     classes += this.state.count === 0 ? "warning text-dark" : "primary";
