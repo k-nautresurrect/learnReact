@@ -27,6 +27,7 @@ class Counter extends Component {
     // React.Fragment is used to return directly all the elements
     return (
       <div>
+        {this.props.children}
         {/* {} <- are used to write javascript code in return */}
         <span className={this.getColor()}>{this.countShow()}</span>
         <button

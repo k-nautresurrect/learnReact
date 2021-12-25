@@ -13,7 +13,9 @@ function Counters() {
     // way 1 of adding element in the component
     <div>
       {counters.map((counter) => (
-        <Counter key={counter.id} value={counter.value} />
+        <Counter key={counter.id} value={counter.value}>
+          <h4>counter #{counter.id}</h4>
+        </Counter>
       ))}
     </div>
   );
